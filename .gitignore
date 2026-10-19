@@ -1,0 +1,12 @@
+# Local design references and development records
+/design/
+/PROJECT.md
+/RESEARCH.md
+/TASKS.md
+/VERIFICATION.md
+/design-qa.md
+/app/AGENTS.md
+
+# Unused prototype and one-off build helper
+/app/src/App.jsx
+/app/scripts/range-download.py

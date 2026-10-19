@@ -1,10 +1,10 @@
 # FLOW — Windows 미디어 다운로더
 
-선택한 결합 시안(3번 메인 + 1번 사이드바)에 파란색 강조색을 적용한 한국어 Electron 앱입니다.
+공개 YouTube/Instagram 미디어를 저장하는 한국어 Windows Electron 앱입니다.
 
 ## 설치 및 사용
 
-- 설치 파일: `app/release/FLOW-Setup-0.1.0.exe`
+- 설치 파일: `app/release/FLOW-Setup-0.1.0.exe` (아래 빌드 명령으로 생성하며 저장소에는 포함하지 않습니다.)
 - 설치 후 바탕 화면의 FLOW 실행 → 공개 YouTube/Instagram 링크 붙여넣기 → 링크 분석 → 실제 제공되는 형식/화질 선택 → 다운로드.
 - 스마트 모드를 켜면 붙여넣기 동작 시 기본 설정으로 바로 대기열에 추가합니다.
 - 기록에서 검색/상태 필터, 재시도, 파일/폴더 열기, 목록 제거를 사용할 수 있습니다. 목록 제거는 미디어 파일을 삭제하지 않습니다.
@@ -41,14 +41,17 @@ pnpm run package:win
 
 도구 준비는 공식 릴리스와 SHA256을 검증합니다. `resources/licenses/build-manifest.json`에 실제 버전과 출처가 남습니다. 엔진 업데이트는 이 도구 준비·테스트·앱 재배포 흐름으로 수행합니다. 실행 중 자체 업데이트는 제공하지 않습니다.
 
-## 구조와 기록
+## 구조
 
 - `app/src/`: React/TypeScript 화면 및 공통 컴포넌트
 - `app/electron/main.cjs`, `preload.cjs`: Windows 연동과 제한된 IPC
 - `app/electron/engine.cjs`: 추출·형식 선택·프로세스·큐
 - `app/electron/store.cjs`: SQLite 설정/작업과 재시작 복구
 - `app/resources/licenses/`: 포함 도구 고지와 릴리스 manifest
-- [PROJECT.md](PROJECT.md), [TASKS.md](TASKS.md), [RESEARCH.md](RESEARCH.md), [VERIFICATION.md](VERIFICATION.md), [design-qa.md](design-qa.md)
+- `app/scripts/`: 도구 준비와 빌드 스크립트
+- `app/tests/`: 엔진과 웹 미리보기 빌드 검증
+
+디자인 시안·스크린샷·작업 기록은 저장소에 포함하지 않습니다. 앱 실행·빌드에 사용하는 소스, 설정, 에셋, 테스트와 라이선스를 유지합니다.
 
 설정/기록은 Windows 사용자 AppData의 FLOW 앱 데이터에 저장되며 미디어는 선택한 폴더에 저장됩니다. 설치 제거 시 미디어와 사용자 기록을 자동 삭제하지 않습니다.
 
