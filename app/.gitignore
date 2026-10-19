@@ -1,0 +1,9 @@
+node_modules/
+dist/
+release/
+resources/bin/
+resources/cache/
+.test-data/
+.test-install/
+*.log
+.test-*.json
